@@ -1,0 +1,60 @@
+ECDC - Alternative metrics to predict:
+
+Background:
+- The original problem statement is to model the est. future CM1 for a given customers 'next order' (given that it happens)
+- CM1 = Net sales expected - (discount + goodwill + COGS expected)
+	- Net sales expected = Net sales before cancellation - (net sales cancelled + net return + net return expected)
+	- COGS expected = COGS before cancellation - (COGS cancelled + COGS returned + COGS return expected)
+
+	- Issues:
+		- Who cancels sales?
+		- How is net return expected?
+		- How is goodwill decided/applied?
+		- Discount:
+			- What about one off discounts?
+			- How do discounts bias the overall results? i.e Just predict low CM1 for those with discount & high for those without (historically)
+			- Predicting who will get a discount as part of the overall model is pretty tough to do
+		- Will CM1 just be biased towards those with largest basket size?
+			- Is this even a problem? Are box sizes consistent across orders for given user?
+
+
+
+Other potential formulations:
+- CM1 ratio
+	- cm1/nsb4canc_in_eur
+	- Solves the problem of bias towards box size
+	- Does this problem need to be solved though?
+
+- CM1 before cancellation:
+	- nsb4canc_in_eur - cogb4canc
+	- Net sales before cancellation - COGS before cancellation
+		- Removes weird biases from discount, goodwill, returns ... etc
+		- Ignores returns though which are a core part of the profit/loss
+
+- CM1 before cancellation after returns:
+	- (nsb4canc_in_eur - cogb4canc) - (nret_in_eur - cogret)
+	- CM1 before cancellation - (net return - COGS return)
+		- Incorporates returns and thus gives much better idea of actual profitability of given order/customer
+		- Net return expeced could also be included (depending on how it's calculated)
+
+- Predicting values separately:
+	- Net Sales
+	- Net returns
+	- other?
+
+- Need to be able to test them on test data to figure out which is best
+	- Ranking error vs ranking by cm1
+
+
+
+
+
+Error function:
+- Official statistic: Kendall rank correlation coefficient
+	- O(n**2) though
+
+- estimated (squared) lost cm1:
+	- based on top N
+	- same as weighted MSE? (weighted by N - rank)
+
+
