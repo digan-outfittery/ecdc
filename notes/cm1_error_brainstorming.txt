@@ -31,7 +31,7 @@ Other potential formulations:
 		- Removes weird biases from discount, goodwill, returns ... etc
 		- Ignores returns though which are a core part of the profit/loss
 
-- CM1 before cancellation after returns:
+- CM1 before cancellation after returns: -> *** Choice for initial modeling ***
 	- (nsb4canc_in_eur - cogb4canc) - (nret_in_eur - cogret)
 	- CM1 before cancellation - (net return - COGS return)
 		- Incorporates returns and thus gives much better idea of actual profitability of given order/customer
@@ -50,7 +50,7 @@ Other potential formulations:
 
 
 Error function:
-- Official statistic: Kendall rank correlation coefficient
+- Official statistic: Kendall rank correlation coefficient -> *** Choice for Initial modeling ***
 	- O(n**2) though
 
 - estimated (squared) lost cm1:
