@@ -1,0 +1,26 @@
+ECDC - to do:
+
+Mandatory:
+	- Final CM1 definition
+		- Check SQL code for correctness
+	- Final Financial variables
+		- Check SQL code for correctness
+	- Re run SQL code for generating feat2__ ...
+	- Modeling:
+		- Deal with  <= 0 CM1 values
+		- Deal with the missing values
+			- Talk to tobias when he's back
+			- Imputation
+		- Build linear model from scratch
+		- Tune all models with Random Search
+		- Implementing custom scoring functions
+			- Within sklearn?
+			- Custom ML models
+			- Modeling environment? 
+
+	- Implementation:
+		- all!!!
+
+
+Optional:
+- previous order features

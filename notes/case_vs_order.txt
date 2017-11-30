@@ -1,0 +1,16 @@
+ECDC - Case vs Order:
+
+Issues:
+- Order itself doesn't capture the full extent of order
+	- Follow up orders not considered
+- Some case ID's seem to be wrong. See customer: 235450090
+
+Potential solutions:
+- Use orders without repeat opportunities
+- Go ahead with cases
+	- Remove potential errors?
+	- Remove all without first/repeat opportunity?
+	- Use all:
+		- Random selection for json? -> *** Choice for initial modeling ***
+		- Multiple rows for json?
+		- Aggregate json?

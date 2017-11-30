@@ -1,0 +1,27 @@
+ECDC - steps:
+
+Overall steps:
+
+1. Data, Feature extraction, cleaning, ... etc
+	-Main data tables:
+		- research.feat2__customer_all_on_order_agg ... Aggregated historic order data
+		- datamart.fact_contribution_margin ... CM calculation figures
+		- datamart.fact_order ... Order financial info
+		- datamart.dim_order ... Order other info
+
+	-Overall steps:
+		a. Data Dictionaries for all of the above
+		b. Investigate financials to remove all random/uncontrolable elements of CM1
+			- redefine problem if better: CM ratio?, Gross Sales?, Adjusted CM1?
+			
+		c. Extract financial features (and any others that pop into mind)
+			- previous order data
+			- previous order(s) aggregated data
+			- split out by original order data (non repeat orders) as well as by case
+		d. Create & Join final modeling table
+
+2. Modeling CM1
+	- Define error function(s)
+	- 
+
+3. Implementation
